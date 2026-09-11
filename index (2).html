@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>$LOSIENTO — Losiento Wilson</title>
+  <meta name="description" content="$LOSIENTO — The chicken crossed onto the blockchain. Memes, community & the coop." />
+  <style>
+    :root{
+      --bg:#070707;
+      --panel:#111;
+      --yellow:#ffe600;
+      --yellow2:#ffc400;
+      --white:#fff;
+      --muted:#b8b8b8;
+      --line:#292929;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--white);
+      background:
+        radial-gradient(circle at 50% 10%, rgba(255,230,0,.11), transparent 30%),
+        linear-gradient(#070707,#0d0d0d 45%,#050505);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,92%);margin:auto}
+    nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(4,4,4,.78);
+      border-bottom:1px solid rgba(255,230,0,.16);
+    }
+    .navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.5px}
+    .brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--yellow);box-shadow:0 0 22px rgba(255,230,0,.35)}
+    .brand span{color:var(--yellow)}
+    .links{display:flex;gap:20px;color:#ddd;font-weight:700;font-size:14px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:50px;padding:0 22px;border-radius:14px;
+      background:var(--yellow);color:#080808;font-weight:1000;
+      border:2px solid var(--yellow);
+      box-shadow:0 0 24px rgba(255,230,0,.2);
+      transition:.2s transform,.2s box-shadow;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 0 36px rgba(255,230,0,.42)}
+    .btn.ghost{background:transparent;color:var(--white);border-color:#444;box-shadow:none}
+    .hero{padding:72px 0 50px}
+    .heroGrid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center}
+    .kicker{color:var(--yellow);font-weight:1000;letter-spacing:2px;text-transform:uppercase;font-size:13px}
+    h1{
+      margin:12px 0 16px;
+      font-size:clamp(55px,9vw,112px);
+      line-height:.86;letter-spacing:-5px;
+      text-transform:uppercase;
+    }
+    h1 .yel{color:var(--yellow);text-shadow:0 0 30px rgba(255,230,0,.25)}
+    .lead{font-size:clamp(18px,2vw,23px);color:#d7d7d7;line-height:1.55;max-width:700px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .mini{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;color:#aaa;font-size:14px;font-weight:700}
+    .art{
+      position:relative;border-radius:28px;overflow:hidden;
+      border:1px solid #343434;
+      box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 45px rgba(255,230,0,.12);
+      transform:rotate(1deg);
+    }
+    .art:after{
+      content:"";position:absolute;inset:-45%;
+      background:conic-gradient(from 0deg, transparent 0 20%, rgba(255,230,0,.22) 22%, transparent 25% 44%, rgba(255,230,0,.12) 46%, transparent 49%);
+      animation:spin 12s linear infinite;pointer-events:none;
+    }
+    .art img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .ticker{
+      border-block:1px solid rgba(255,230,0,.25);
+      background:#0c0c0c;
+      overflow:hidden;white-space:nowrap;
+      padding:13px 0;color:var(--yellow);font-weight:1000;letter-spacing:1px
+    }
+    .ticker div{display:inline-block;animation:marquee 18s linear infinite}
+    @keyframes marquee{to{transform:translateX(-50%)}}
+    section{padding:86px 0}
+    .sectionTitle{font-size:clamp(36px,6vw,68px);margin:0 0 18px;letter-spacing:-2px;text-transform:uppercase}
+    .sectionTitle span{color:var(--yellow)}
+    .copy{max-width:760px;color:#c5c5c5;font-size:18px;line-height:1.75}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .card{
+      padding:28px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,#151515,#0b0b0b);
+      min-height:210px;position:relative;overflow:hidden;
+    }
+    .card:before{content:"";position:absolute;inset:auto -20% -60% 20%;height:160px;background:radial-gradient(circle,rgba(255,230,0,.16),transparent 65%)}
+    .num{font-size:13px;color:var(--yellow);font-weight:1000;letter-spacing:2px}
+    .card h3{font-size:25px;margin:12px 0 10px}
+    .card p{color:#aaa;line-height:1.6}
+    .banner{
+      width:100%;border-radius:28px;border:1px solid #303030;display:block;
+      box-shadow:0 25px 70px rgba(0,0,0,.5);
+    }
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+    .step{border-left:3px solid var(--yellow);background:#101010;padding:22px;border-radius:0 16px 16px 0}
+    .step strong{display:block;color:var(--yellow);font-size:13px;margin-bottom:10px}
+    .step b{font-size:20px}
+    .step p{color:#aaa;line-height:1.5;margin-bottom:0}
+    .community{
+      text-align:center;padding:65px 24px;border:1px solid rgba(255,230,0,.28);
+      background:radial-gradient(circle at 50% 0,rgba(255,230,0,.15),transparent 45%),#0d0d0d;
+      border-radius:30px;
+    }
+    .community h2{font-size:clamp(42px,7vw,82px);margin:0 0 12px;text-transform:uppercase;letter-spacing:-3px}
+    .community h2 span{color:var(--yellow)}
+    .community p{color:#bbb;font-size:18px;max-width:700px;margin:0 auto 26px}
+    footer{border-top:1px solid #242424;padding:34px 0 50px;color:#8d8d8d;font-size:13px}
+    .footerin{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+    @media(max-width:900px){
+      .links{display:none}
+      .heroGrid{grid-template-columns:1fr}
+      .hero{padding-top:45px}
+      h1{letter-spacing:-3px}
+      .art{max-width:620px}
+      .cards{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:560px){
+      .navin{height:64px}
+      .brand{font-size:14px}
+      .brand img{width:38px;height:38px}
+      .navin .btn{min-height:42px;padding:0 14px;font-size:13px}
+      .steps{grid-template-columns:1fr}
+      section{padding:65px 0}
+      h1{font-size:58px;letter-spacing:-3px}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap navin">
+      <a class="brand" href="#top">
+        <img src="profile.png" alt="$LOSIENTO mascot">
+        <div>LOSIENTO <span>$LOSIENTO</span></div>
+      </a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#meme">The Meme</a>
+        <a href="#buy">How to Buy</a>
+        <a href="#community">Community</a>
+      </div>
+      <a class="btn" href="#" id="buyTop">BUY $LOSIENTO</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap heroGrid">
+        <div>
+          <div class="kicker">🐔 THE COOP IS OPEN</div>
+          <h1>LOSiento<br><span class="yel">Wilson</span></h1>
+          <p class="lead">
+            The chicken crossed onto the blockchain. No corporate nonsense.
+            Just memes, community, the coop — and <b>$LOSIENTO</b>.
+          </p>
+          <div class="cta">
+            <a class="btn" href="#" id="buyHero">BUY $LOSIENTO</a>
+            <a class="btn ghost" href="#" id="xHero">FOLLOW ON X</a>
+          </div>
+          <div class="mini">
+            <span>⚡ Same chicken. Bigger dreams.</span>
+            <span>👑 A Higher Breed.</span>
+            <span>🐔 Pero hoy no hay pollo.</span>
+          </div>
+        </div>
+        <div class="art"><img src="profile.png" alt="Losiento Wilson chicken"></div>
+      </div>
+    </section>
+
+    <div class="ticker">
+      <div>
+        $LOSIENTO • MEMES • COMMUNITY • THE COOP • SAME CHICKEN. DIFFERENT MONEY. • PERO HOY NO HAY POLLO •
+        $LOSIENTO • MEMES • COMMUNITY • THE COOP • SAME CHICKEN. DIFFERENT MONEY. • PERO HOY NO HAY POLLO •
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap">
+        <h2 class="sectionTitle">A <span>Higher Breed</span></h2>
+        <p class="copy">
+          $LOSIENTO is built around one unforgettable chicken and one simple idea:
+          memes are better when the community owns the joke. The coop runs on energy,
+          creativity and pure internet culture.
+        </p>
+        <div class="cards">
+          <div class="card"><div class="num">01 / MEME</div><h3>Instantly recognizable</h3><p>A bold chicken mascot, one-liners and a visual identity made to stand out in the feed.</p></div>
+          <div class="card"><div class="num">02 / COMMUNITY</div><h3>The coop</h3><p>The brand belongs in replies, memes, remixes and community posts — not corporate boardrooms.</p></div>
+          <div class="card"><div class="num">03 / ENERGY</div><h3>Good vibes</h3><p>No fake promises. No guaranteed returns. Just a memecoin built for entertainment and culture.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="meme">
+      <div class="wrap">
+        <h2 class="sectionTitle">Same chicken. <span>New era.</span></h2>
+        <img class="banner" src="banner.png" alt="$LOSIENTO banner artwork">
+      </div>
+    </section>
+
+    <section id="buy">
+      <div class="wrap">
+        <h2 class="sectionTitle">How to <span>Buy</span></h2>
+        <p class="copy">Keep it simple. Use your own wallet and always verify the official contract/address before swapping.</p>
+        <div class="steps">
+          <div class="step"><strong>STEP 1</strong><b>Get Phantom</b><p>Install Phantom and secure your recovery phrase offline.</p></div>
+          <div class="step"><strong>STEP 2</strong><b>Add SOL</b><p>Fund the wallet with enough SOL for your purchase and network fees.</p></div>
+          <div class="step"><strong>STEP 3</strong><b>Open the official coin page</b><p>Use the official $LOSIENTO link shared by the project.</p></div>
+          <div class="step"><strong>STEP 4</strong><b>Swap carefully</b><p>Check the token name/address and confirm the transaction yourself.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="community">
+      <div class="wrap">
+        <div class="community">
+          <div class="kicker">MEMES • COMMUNITY • THE COOP</div>
+          <h2>Join the <span>Coop</span></h2>
+          <p>Make memes. Share the chicken. Keep it fun. $LOSIENTO lives wherever the community takes it.</p>
+          <div class="cta" style="justify-content:center">
+            <a class="btn" href="#" id="xBottom">FOLLOW ON X</a>
+            <a class="btn ghost" href="#" id="buyBottom">VIEW $LOSIENTO</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footerin">
+      <div>© 2026 $LOSIENTO • Losiento Wilson</div>
+      <div>Memecoin for entertainment. Crypto is risky. No promises or guaranteed returns.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Replace these two links before publishing:
+    const BUY_LINK = "#";   // example: your official Pump.fun coin URL
+    const X_LINK   = "#";   // example: your official X profile URL
+
+    ["buyTop","buyHero","buyBottom"].forEach(id => document.getElementById(id).href = BUY_LINK);
+    ["xHero","xBottom"].forEach(id => document.getElementById(id).href = X_LINK);
+  </script>
+</body>
+</html>
